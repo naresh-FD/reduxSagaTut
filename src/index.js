@@ -3,12 +3,14 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import reducer from "./store/reducer";
+import { watchUp } from "./sagas/saga";
 
 import { Provider } from "react-redux";
 import { createStore, applyMiddleware } from "redux";
 import createSagaMiddleware from "redux-saga";
 
 const sagaMiddleware = createSagaMiddleware();
+sagaMiddleware.run(watchUp);
 const store = createStore(reducer, applyMiddleware(sagaMiddleware));
 
 ReactDOM.render(
