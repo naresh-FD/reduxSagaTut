@@ -10,8 +10,8 @@ import { createStore, applyMiddleware } from "redux";
 import createSagaMiddleware from "redux-saga";
 
 const sagaMiddleware = createSagaMiddleware();
-sagaMiddleware.run(watchUp);
 const store = createStore(reducer, applyMiddleware(sagaMiddleware));
+sagaMiddleware.run(watchUp);
 
 ReactDOM.render(
   <Provider store={store}>
